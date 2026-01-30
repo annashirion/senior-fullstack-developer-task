@@ -9,13 +9,16 @@
 <script setup>
 import { computed } from "vue"
 import { useRoute, useRouter } from "vue-router"
+import { useStore } from "vuex"
 import Navbar from "./components/Navbar.vue"
 
 const route = useRoute()
 const router = useRouter()
+const store = useStore()
 const showNavbar = computed(() => route.path !== "/")
 
 const handleLogout = () => {
+	store.dispatch("logout")
 	router.push("/")
 }
 </script>

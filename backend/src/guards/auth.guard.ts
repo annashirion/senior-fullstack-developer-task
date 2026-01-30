@@ -7,6 +7,7 @@ import {
 import { UsersService } from '../users/users.service';
 import { Request } from 'express';
 import { User } from '../users/users.entity';
+import { UserStatus } from '../users/user-status.enum';
 
 interface RequestWithUser extends Request {
   user?: User;
@@ -28,6 +29,10 @@ export class AuthGuard implements CanActivate {
 
     if (!user) {
       throw new UnauthorizedException('User not found');
+    }
+
+    if (user.status === UserStatus.Deleted) {
+      throw new UnauthorizedException('User deleted');
     }
 
     request.user = user;

@@ -1,6 +1,5 @@
 <template>
 	<nav class="navbar">
-		<router-link to="/" class="hover:text-gray-300">Login</router-link>
 		<router-link to="/home" class="hover:text-gray-300">Home</router-link>
 		<router-link to="/admin" class="hover:text-gray-300">Admin</router-link>
 		<router-link to="/editor" class="hover:text-gray-300">Editor</router-link>
